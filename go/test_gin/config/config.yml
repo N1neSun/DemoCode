@@ -1,0 +1,38 @@
+server:
+  port: 8080
+  read-timeout: 60
+  write-timeout: 60
+
+app:
+  #run-mode:debug/release
+  run-mode: debug
+  pagesize: 10
+  log-path: log/debug.log
+  identity-key: idname
+
+database:
+  type: mysql
+  user: root
+  password: 123456
+  host: 127.0.0.1:3306
+  name: test_gin
+  table-prefix: test_gin_
+
+redis:
+  addr: 127.0.0.1:6379
+  pass: 
+  db: 1
+  timeout: 1000
+  expired-time: 3600
+
+rabbitmq:
+  addr: 127.0.0.1
+  port: 5672
+  user: guest
+  pass: guest
+
+minioclient:
+  endpoint: 127.0.0.1:9000
+  accessKeyID: minioadmin
+  secretAccessKey: minioadmin
+  useSSL: false
