@@ -19,11 +19,9 @@ import (
 func Inject(source *datasource.Db, log *logger.Logger) (myapp *app.App) {
 	panic(wire.Build(
 		wire.Struct(new(jwt.JWT), "*"),
-		repository.NewRoleRepository,
-		repository.NewUserRepository,
-		service.NewUserService,
-		service.NewRoleService,
-		api.NewUser,
-		wire.Struct(new(app.App), "*"),
+		repository.ProviderSet,
+		service.ProviderSet,
+		api.ProviderSet,
+		app.ProviderSet,
 	))
 }

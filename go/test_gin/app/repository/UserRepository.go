@@ -6,8 +6,11 @@ import (
 	"test_gin/common/logger"
 	"time"
 
+	"github.com/google/wire"
 	"gorm.io/gorm"
 )
+
+var ProviderSet = wire.NewSet(NewUserRepository, NewRoleRepository)
 
 //UserRepository 注入IDb
 type UserRepository struct {

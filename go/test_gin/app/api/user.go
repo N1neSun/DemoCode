@@ -6,6 +6,7 @@ import (
 	middlewarejwt "test_gin/common/middleware/jwt"
 
 	jwt "github.com/appleboy/gin-jwt/v2"
+	"github.com/google/wire"
 
 	"test_gin/app/domain"
 	"test_gin/app/models"
@@ -16,6 +17,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 )
+
+var ProviderSet = wire.NewSet(NewUser)
 
 type User struct {
 	Log     logger.ILogger       `inject:""`

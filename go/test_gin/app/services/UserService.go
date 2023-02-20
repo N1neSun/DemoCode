@@ -5,7 +5,11 @@ import (
 	"test_gin/app/models"
 	"test_gin/app/repository"
 	"test_gin/common/logger"
+
+	"github.com/google/wire"
 )
+
+var ProviderSet = wire.NewSet(NewUserService, NewRoleService)
 
 type UserService struct {
 	Repository     repository.IUserRepository `inject:""`

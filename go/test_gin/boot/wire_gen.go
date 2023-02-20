@@ -28,8 +28,6 @@ func Inject(source *datasource.Db, log *logger.Logger) *app.App {
 		RoleService: iRoleService,
 	}
 	user := api.NewUser(log, jwtJWT, iUserService)
-	appApp := &app.App{
-		User: user,
-	}
+	appApp := app.NewApp(user)
 	return appApp
 }
