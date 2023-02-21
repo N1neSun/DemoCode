@@ -34,6 +34,12 @@ func NewUser(log *logger.Logger, jwt *middlewarejwt.JWT, user service.IUserServi
 	}
 }
 
+// @Summary 获取用户信息
+// @Tags user
+// @Accept application/json
+// @Produce json
+// @Router /user/info [get]
+// @Success 200 {object} domain.Users
 func (a *User) GetUserInfo(c *gin.Context) {
 	roles := jwt.ExtractClaims(c)
 	userName := roles["userName"].(string)
